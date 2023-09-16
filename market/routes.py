@@ -1,5 +1,6 @@
-from flask import Flask, render_template
-app = Flask(__name__)
+from market import app
+from flask import render_template
+from market.models import Item
 
 @app.route('/')
 @app.route('/home')
@@ -8,12 +9,9 @@ def home_page():
 
 @app.route('/market')
 def market_page():
-  items = [
-    {'id': 1, 'name': 'Phone', 'barcode': '89321299897', 'price': 500},
-    {'id': 2, 'name': 'Laptop', 'barcode': '82648827492', 'price': 900},
-    {'id': 3, 'name': 'Keyboard', 'barcodee': '74820847520', 'price': 150}
-  ]
+  items = Item.query.all()
   return render_template('market.html', items=items)
+
 
 # Possible easter egg
 # @app.route('/about/<username>')
