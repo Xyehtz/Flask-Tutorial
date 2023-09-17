@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+  Register Page
+{% endblock %}
+
+{% block content %}
+  <body class="text-center">
+    <div class="container">
+      <form method="POST" class="form-register" style="color:white">
+
+        <img class="mb-4" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmx5cWtvYTBibngxeDdxMzhhdzg0a29kaTg0djBoZzM5bnNmbDNpYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/5EWYfkx8nmJ2YMgWr8/giphy.gif" width="200px" alt="">
+        <h1 class="h3 mb-3 font-weight-normal">
+          Create your Account
+        </h1>
+
+        <br>
+        {{ form.username.label() }}
+        {{ form.username(class="form-control", placeholder="Username") }}
+        
+        {{ form.email_address.label() }}
+        {{ form.email_address(class="form-control", placeholder="Email Address") }}
+        
+        {{ form.password1.label() }}
+        {{ form.password1(class="form-control", placeholder="Password") }}
+        
+        {{ form.password2.label() }}
+        {{ form.password2(class="form-control", placeholder="Re-Password") }}
+
+        <br>
+        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+      </form>
+    </div>
+  </body>
+
+{% endblock %}
